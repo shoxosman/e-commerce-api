@@ -7,6 +7,7 @@ import productRouter from './src/routes/product.routes.js';
 import categoryRouter from './src/routes/category.routes.js';
 import winston from "winston";
 import "winston-mongodb";
+import cors from 'cors'
 
     
 
@@ -32,7 +33,8 @@ async function main() {
       
       await mongoose.connect(process.env.MONGO_URL)
     app.use(express.json());
-    app.use(express.urlencoded({extended:false}))
+    app.use(express.urlencoded({extended:false}));
+    app.use(cors())
 
 app.use(userRouter);
 app.use(authRouter);

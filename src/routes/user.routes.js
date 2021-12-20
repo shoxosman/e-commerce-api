@@ -8,7 +8,7 @@ import { isAuth } from "../middlewares/auth.middleware.js";
 const userRouter =Router()
 
 
-userRouter.post('/users' ,isAdmin, async(req , res)=>{
+userRouter.post('/users' /* ,isAdmin */, async(req , res)=>{
     try {
         await userValidate.validateAsync(req.body)
     } catch (error) {
